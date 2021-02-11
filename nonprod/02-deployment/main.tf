@@ -1,8 +1,20 @@
+terraform {
+   backend "azurerm" {  
+    resource_group_name  = "alejandro-padilla"
+    storage_account_name = "fiac"
+    container_name       = "first"
+    key                  = "prod.st.terraform.tfstate"
+  }
+}
+
 data "terraform_remote_state" "service_account" {
-  backend = "local"
+  backend = "azurerm"
 
   config = {
-    path = "../01-service_account/terraform.tfstate"
+    resource_group_name  = "alejandro-padilla"
+    storage_account_name = "fiac"
+    container_name       = "first"
+    key                  = "prod.sa.terraform.tfstate"
   }
 }
 
@@ -13,7 +25,7 @@ provider "kubernetes" {
 }
 
 module "deployment_nonprod" {
-  source = "../../../modules/deployment"
+  source = "git@github.com:alejandromarin7/lktrz-tf-02-deploy-module.git?ref=v1.0.0"
 
   message = "Hello Krollege!"
 }
