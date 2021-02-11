@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"deployment_nonprod","Source":"git@github.com:alejandromarin7/lktrz-tf-02-deploy-module.git?ref=v1.0.0","Dir":".terraform/modules/deployment_nonprod"}]}

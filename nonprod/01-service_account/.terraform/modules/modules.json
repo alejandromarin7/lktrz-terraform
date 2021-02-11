@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"service_account_nonprod","Source":"git@github.com:alejandromarin7/lktrz-tf-01-sa-module.git?ref=v1.0.0","Dir":".terraform/modules/service_account_nonprod"}]}
