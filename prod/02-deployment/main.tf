@@ -1,8 +1,9 @@
 data "terraform_remote_state" "service_account" {
-  backend = "local"
+  backend = "gcs"
 
   config = {
-    path = "../01-service_account/terraform.tfstate"
+    bucket  = "terraformiacc"
+    prefix  = "terraform/statesa"
   }
 }
 
@@ -13,7 +14,8 @@ provider "kubernetes" {
 }
 
 module "deployment_nonprod" {
-  source = "../../../modules/deployment"
+  source = "git@github.com:alejandromarin7/lktrz-tf-02-deploy-module.git?ref=v1.0.0"
 
   message = "Hello Krollege From PROD!"
+  environ = "prod"
 }
